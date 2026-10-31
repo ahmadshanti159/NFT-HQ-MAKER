@@ -358,19 +358,7 @@
               <span>2. أضف الخصائص النادرة والمؤثرات الجنونية (ترفع سعر التقييم فوراً)</span>
             </h3>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <!-- Eyes / Visor Trait -->
-              <div class="bg-slate-900/80 p-3 rounded-2xl border border-slate-800">
-                <label for="selectEyes" class="block text-xs font-bold text-slate-300 mb-1.5">👁️ طاقة العيون والقناع (Visor &amp; Eyes):</label>
-                <select id="selectEyes" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-semibold focus:border-cyan-400 outline-none">
-                  <option value="laser_plasma" selected>ليزر بلازما نيون مزدوج (+0.85 ETH 🔥 نادر جداً)</option>
-                  <option value="cosmic_void">عيون الثقب الأسود الكوني (+1.20 ETH 💎 أسطوري)</option>
-                  <option value="cyber_visor">قناع هولوغرام سيبراني مشفر (+0.65 ETH ⚡ رائج)</option>
-                  <option value="golden_god">وهج الذهب المقدس 24K (+0.95 ETH 👑 ملكي)</option>
-                  <option value="none">العيون الأصلية بدون إضافات (+0.00 ETH)</option>
-                </select>
-              </div>
-
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <!-- Crown / Aura Trait -->
               <div class="bg-slate-900/80 p-3 rounded-2xl border border-slate-800">
                 <label for="selectAura" class="block text-xs font-bold text-slate-300 mb-1.5">👑 الهالة الكونية والتاج (Aura &amp; Crown):</label>
@@ -755,13 +743,6 @@
     ];
 
     const TRAIT_PRICES = {
-      eyes: {
-        laser_plasma: { name: 'ليزر بلازما نيون مزدوج', eth: 0.85, score: 18 },
-        cosmic_void: { name: 'عيون الثقب الأسود الكوني', eth: 1.20, score: 22 },
-        cyber_visor: { name: 'قناع هولوغرام سيبراني مشفر', eth: 0.65, score: 15 },
-        golden_god: { name: 'وهج الذهب المقدس 24K', eth: 0.95, score: 19 },
-        none: { name: 'بدون إضافات عيون', eth: 0.0, score: 5 }
-      },
       aura: {
         sacred_halo: { name: 'هالة الهندسة المقدسة الذهبية', eth: 0.95, score: 20 },
         crystal_crown: { name: 'تاج الشظايا الكريستالية العائمة', eth: 1.10, score: 22 },
@@ -786,10 +767,9 @@
 
     const CRAZY_PRESETS = [
       {
-        title: 'إمبراطور الساموراي ذو العيون البلازمية #0001',
-        story: 'قرد ساموراي مستقبلي مدرع بالكروم السائل والذهب المشع مع هالة هندسة مقدسة وعيون ليزر تخترق الميتافيرس.',
+        title: 'إمبراطور الساموراي والهندسة المقدسة #0001',
+        story: 'قرد ساموراي مستقبلي مدرع بالكروم السائل والذهب المشع مع هالة هندسة مقدسة ثلاثية الأبعاد.',
         style: 'cyber_samurai',
-        eyes: 'laser_plasma',
         aura: 'sacred_halo',
         shader: 'kintsugi_gold',
         frame: 'mythic_gold',
@@ -802,7 +782,6 @@
         title: 'جمجمة المجرة المنشورية والذهب المنصهر #0007',
         story: 'جمجمة كريستالية شفافة تحوي بداخلها ولادة مجرة كونية مع تاج شظايا الكريستال وعروق الذهب الياباني عيار 24.',
         style: 'cosmic_skull',
-        eyes: 'cosmic_void',
         aura: 'crystal_crown',
         shader: 'kintsugi_gold',
         frame: 'superrare_card',
@@ -815,7 +794,6 @@
         title: 'المسافر النجمي المنصهر في مصفوفة الغليتش #0404',
         story: 'رائد فضاء في انعدام الجاذبية تذوب خوذته العاكسة إلى موجات نيون سائلة وبكسلات متفجرة على طريقة XCOPY.',
         style: 'glitch_astronaut',
-        eyes: 'cyber_visor',
         aura: 'quantum_orbit',
         shader: 'rgb_glitch',
         frame: 'cyber_hud',
@@ -828,7 +806,6 @@
         title: 'تنين الزمرد الحيوي والرخام الملكي #0888',
         story: 'حارس المعبد السيبراني المصنوع من الرخام الأسود النادر، يتدفق الذهب السائل في شقوقه مع لهب الزمرد الكوني.',
         style: 'mecha_dragon',
-        eyes: 'golden_god',
         aura: 'emerald_flames',
         shader: 'kintsugi_gold',
         frame: 'mythic_gold',
@@ -841,7 +818,6 @@
         title: 'سمفونية التدفق الخوارزمي الذهبي (Fidenza Genesis) #0042',
         story: 'لوحة فن توليدي خوارزمي تحاكي حقول الجاذبية الكمية بتدفقات ذهبية وسيان لا تتكرر رياضياً على Art Blocks.',
         style: 'artblocks_flow',
-        eyes: 'golden_god',
         aura: 'sacred_halo',
         shader: 'cosmic_dust',
         frame: 'superrare_card',
@@ -852,9 +828,8 @@
       },
       {
         title: 'بوابة التسراكت سداسية الأبعاد #0999',
-        story: 'مكعب كمي فائق يدور في 6 أبعاد مع رموز بلوكشين مشفرة وأشعة ليزر منشورية نادرة.',
+        story: 'مكعب كمي فائق يدور في 6 أبعاد مع رموز بلوكشين مشفرة وأطياف منشورية نادرة.',
         style: 'quantum_portal',
-        eyes: 'cosmic_void',
         aura: 'crystal_crown',
         shader: 'matrix_runes',
         frame: 'mythic_gold',
@@ -867,7 +842,6 @@
 
     let state = {
       style: 'cyber_samurai',
-      eyes: 'laser_plasma',
       aura: 'sacred_halo',
       shader: 'kintsugi_gold',
       frame: 'mythic_gold',
@@ -879,7 +853,7 @@
       artistName: 'NEO-ARABIA LABS',
       seed: 749201,
       title: 'الإمبراطور السيبراني: الساموراي الذهبي #0001',
-      story: 'فكرة جنونية تدمج درع الساموراي المصهور بالذهب عيار 24 مع قناع ليزر بلازما وهالة هندسة مقدسة ثلاثية الأبعاد — من أكثر أنماط الـ PFP مبيعاً على OpenSea و Blur.',
+      story: 'فكرة جنونية تدمج درع الساموراي المصهور بالذهب عيار 24 مع هالة هندسة مقدسة ثلاثية الأبعاد — من أكثر أنماط الـ PFP مبيعاً على OpenSea و Blur.',
       customImage: null
     };
 
@@ -969,7 +943,6 @@
     function applyPreset(preset) {
       state.customImage = null;
       state.style = preset.style;
-      state.eyes = preset.eyes;
       state.aura = preset.aura;
       state.shader = preset.shader;
       state.frame = preset.frame;
@@ -981,7 +954,6 @@
       state.story = preset.story;
       state.seed = Math.floor(Math.random() * 900000) + 100000;
 
-      document.getElementById('selectEyes').value = state.eyes;
       document.getElementById('selectAura').value = state.aura;
       document.getElementById('selectShader').value = state.shader;
       document.getElementById('selectFrame').value = state.frame;
@@ -1047,10 +1019,7 @@
       // 3. Draw Surface Shader / Kintsugi / Glitch Layer
       drawShaderLayer(ctx, size, rand, state.shader, glowFactor, compFactor);
 
-      // 4. Draw Eyes / Visor Energy Layer
-      drawEyesLayer(ctx, size, rand, state.eyes, styleObj.id, glowFactor);
-
-      // 5. Draw Collector Frame & On-Canvas Metadata Stamp
+      // 4. Draw Collector Frame & On-Canvas Metadata Stamp
       drawFrameLayer(ctx, size, state.frame, styleObj);
 
       ctx.restore();
@@ -1362,90 +1331,6 @@
       ctx.restore();
     }
 
-    function drawEyesLayer(ctx, size, rand, eyesType, styleId, glow) {
-      if (eyesType === 'none') return;
-      ctx.save();
-
-      // Eye coordinates adapted smoothly to center portrait area
-      const leftEyeX = size * 0.44;
-      const rightEyeX = size * 0.56;
-      const eyeY = styleId === 'cosmic_skull' ? size * 0.49 : size * 0.305;
-
-      if (eyesType === 'laser_plasma') {
-        ctx.shadowColor = '#f43f5e';
-        ctx.shadowBlur = size * 0.035 * glow;
-
-        // Glowing eye cores + laser beams
-        [leftEyeX, rightEyeX].forEach((ex, idx) => {
-          const beamGrad = ctx.createLinearGradient(ex, eyeY, idx === 0 ? 0 : size, eyeY - size * 0.08);
-          beamGrad.addColorStop(0, '#ffffff');
-          beamGrad.addColorStop(0.2, '#fb7185');
-          beamGrad.addColorStop(0.6, 'rgba(244, 63, 94, 0.65)');
-          beamGrad.addColorStop(1, 'rgba(244, 63, 94, 0)');
-
-          ctx.strokeStyle = beamGrad;
-          ctx.lineWidth = size * 0.016;
-          ctx.lineCap = 'round';
-          ctx.beginPath();
-          ctx.moveTo(ex, eyeY);
-          ctx.lineTo(idx === 0 ? size * 0.04 : size * 0.96, eyeY - size * 0.04);
-          ctx.stroke();
-
-          ctx.beginPath();
-          ctx.arc(ex, eyeY, size * 0.015, 0, Math.PI * 2);
-          ctx.fillStyle = '#ffffff';
-          ctx.fill();
-        });
-      } else if (eyesType === 'cosmic_void') {
-        [leftEyeX, rightEyeX].forEach(ex => {
-          const g = ctx.createRadialGradient(ex, eyeY, size * 0.004, ex, eyeY, size * 0.04);
-          g.addColorStop(0, '#000000');
-          g.addColorStop(0.45, '#a855f7');
-          g.addColorStop(0.75, '#38bdf8');
-          g.addColorStop(1, 'rgba(56, 189, 248, 0)');
-          ctx.fillStyle = g;
-          ctx.beginPath();
-          ctx.arc(ex, eyeY, size * 0.04, 0, Math.PI * 2);
-          ctx.fill();
-        });
-      } else if (eyesType === 'cyber_visor') {
-        const vx = size * 0.34;
-        const vy = eyeY - size * 0.032;
-        const vw = size * 0.32;
-        const vh = size * 0.064;
-
-        const g = ctx.createLinearGradient(vx, vy, vx + vw, vy);
-        g.addColorStop(0, 'rgba(6, 182, 212, 0.82)');
-        g.addColorStop(0.5, 'rgba(236, 72, 153, 0.85)');
-        g.addColorStop(1, 'rgba(250, 204, 21, 0.82)');
-
-        ctx.fillStyle = g;
-        ctx.shadowColor = '#22d3ee';
-        ctx.shadowBlur = size * 0.025 * glow;
-        ctx.beginPath();
-        ctx.roundRect(vx, vy, vw, vh, size * 0.018);
-        ctx.fill();
-
-        ctx.strokeStyle = '#ffffff';
-        ctx.lineWidth = size * 0.003;
-        ctx.stroke();
-      } else if (eyesType === 'golden_god') {
-        [leftEyeX, rightEyeX].forEach(ex => {
-          const g = ctx.createRadialGradient(ex, eyeY, size * 0.003, ex, eyeY, size * 0.042);
-          g.addColorStop(0, '#ffffff');
-          g.addColorStop(0.35, '#fde047');
-          g.addColorStop(0.7, '#f59e0b');
-          g.addColorStop(1, 'rgba(245, 158, 11, 0)');
-          ctx.fillStyle = g;
-          ctx.beginPath();
-          ctx.arc(ex, eyeY, size * 0.042, 0, Math.PI * 2);
-          ctx.fill();
-        });
-      }
-
-      ctx.restore();
-    }
-
     function drawFrameLayer(ctx, size, frameType, styleObj) {
       if (frameType === 'none') return;
       ctx.save();
@@ -1540,7 +1425,6 @@
     // ==================== ALGORITHMIC NFT VALUATION ENGINE ====================
     function calculateValuation() {
       const styleObj = STYLES.find(s => s.id === state.style) || STYLES[0];
-      const eyeObj = TRAIT_PRICES.eyes[state.eyes];
       const auraObj = TRAIT_PRICES.aura[state.aura];
       const shaderObj = TRAIT_PRICES.shader[state.shader];
       const frameObj = TRAIT_PRICES.frame[state.frame];
@@ -1549,14 +1433,14 @@
       const resBonus = state.resolution === 3000 ? 0.45 : (state.resolution === 2048 ? 0.20 : 0.0);
       const complexityBonus = Number(((state.complexity / 100) * 0.35 + (state.glow / 100) * 0.20).toFixed(2));
 
-      const totalEth = Number((baseEth + eyeObj.eth + auraObj.eth + shaderObj.eth + frameObj.eth + resBonus + complexityBonus).toFixed(2));
+      const totalEth = Number((baseEth + auraObj.eth + shaderObj.eth + frameObj.eth + resBonus + complexityBonus).toFixed(2));
       const quickFlipEth = Number((totalEth * 0.76).toFixed(2));
       const auctionMaxEth = Number((totalEth * 1.45).toFixed(2));
 
       const usdValue = Math.round(totalEth * ETH_USD);
       const solValue = ( (totalEth * ETH_USD) / SOL_USD ).toFixed(1);
 
-      const rawScore = 24 + eyeObj.score + auraObj.score + shaderObj.score + frameObj.score + (state.complexity * 0.06);
+      const rawScore = 42 + auraObj.score + shaderObj.score + frameObj.score + (state.complexity * 0.06);
       const rarityScore = Math.min(99.8, Math.max(68.0, rawScore)).toFixed(1);
 
       let rarityLabel = 'RARE EDITION';
@@ -1567,7 +1451,6 @@
       return {
         styleObj,
         baseEth,
-        eyeObj,
         auraObj,
         shaderObj,
         frameObj,
@@ -1618,10 +1501,7 @@
           <span>🎨 النمط الأساسي (${state.customImage ? 'صورة مخصصة من الآيفون' : v.styleObj.name}):</span>
           <strong class="font-mono-num text-amber-300">+${v.baseEth.toFixed(2)} ETH</strong>
         </li>
-        <li class="flex justify-between items-center py-0.5 border-b border-slate-800/70">
-          <span>👁️ ${v.eyeObj.name}:</span>
-          <strong class="font-mono-num text-cyan-300">+${v.eyeObj.eth.toFixed(2)} ETH</strong>
-        </li>
+
         <li class="flex justify-between items-center py-0.5 border-b border-slate-800/70">
           <span>👑 ${v.auraObj.name}:</span>
           <strong class="font-mono-num text-cyan-300">+${v.auraObj.eth.toFixed(2)} ETH</strong>
@@ -1648,8 +1528,6 @@
 
     // ==================== RANDOM CRAZY IDEA GENERATOR ====================
     function triggerCrazyIdea() {
-      const randomPreset = CRAZY_PRESETS[Math.floor(Math.random() * CRAZY_PRESETS.length)];
-      const eyeKeys = ['laser_plasma', 'cosmic_void', 'cyber_visor', 'golden_god'];
       const auraKeys = ['sacred_halo', 'crystal_crown', 'emerald_flames', 'quantum_orbit'];
       const shaderKeys = ['kintsugi_gold', 'rgb_glitch', 'matrix_runes', 'cosmic_dust'];
       const frameKeys = ['mythic_gold', 'superrare_card', 'cyber_hud'];
@@ -1668,7 +1546,6 @@
 
       state.customImage = null;
       state.style = randomStyle.id;
-      state.eyes = eyeKeys[Math.floor(Math.random() * eyeKeys.length)];
       state.aura = auraKeys[Math.floor(Math.random() * auraKeys.length)];
       state.shader = shaderKeys[Math.floor(Math.random() * shaderKeys.length)];
       state.frame = frameKeys[Math.floor(Math.random() * frameKeys.length)];
@@ -1678,9 +1555,8 @@
       state.tokenNum = paddedToken;
       state.seed = Math.floor(Math.random() * 900000) + 100000;
       state.title = crazyTitles[Math.floor(Math.random() * crazyTitles.length)];
-      state.story = `${randomStyle.desc} ممزوج بخصائص نادرة جداً (${TRAIT_PRICES.eyes[state.eyes].name} + ${TRAIT_PRICES.aura[state.aura].name}) تمنحه تقييماً استثنائياً.`;
+      state.story = `${randomStyle.desc} ممزوج بخصائص نادرة جداً (${TRAIT_PRICES.aura[state.aura].name} + ${TRAIT_PRICES.shader[state.shader].name}) تمنحه تقييماً استثنائياً.`;
 
-      document.getElementById('selectEyes').value = state.eyes;
       document.getElementById('selectAura').value = state.aura;
       document.getElementById('selectShader').value = state.shader;
       document.getElementById('selectFrame').value = state.frame;
@@ -1794,10 +1670,6 @@
       });
 
       // Trait Selects
-      document.getElementById('selectEyes').addEventListener('change', (e) => {
-        state.eyes = e.target.value;
-        renderAll();
-      });
       document.getElementById('selectAura').addEventListener('change', (e) => {
         state.aura = e.target.value;
         renderAll();
@@ -1912,7 +1784,7 @@
           `⚡ سعر البيع السريع (<12h): ${v.quickFlipEth} ETH | سقف المزاد: ${v.auctionMaxEth} ETH`,
           `🏆 تصنيف الندرة: ${v.rarityLabel} (${v.rarityScore}/100)`,
           `📐 الدقة: ${state.resolution}x${state.resolution} px Ultra-HD`,
-          `🧬 الخصائص النادرة: ${v.eyeObj.name} | ${v.auraObj.name} | ${v.shaderObj.name} | ${v.frameObj.name}`,
+          `🧬 الخصائص النادرة: ${v.auraObj.name} | ${v.shaderObj.name} | ${v.frameObj.name}`,
           `🌍 المنصة المقترحة: ${v.styleObj.platformName}`
         ].join('\n');
 
